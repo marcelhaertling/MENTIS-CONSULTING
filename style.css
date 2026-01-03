@@ -62,23 +62,6 @@ body {
   opacity: 0.85;
 }
 
-/* IMAGE BREAKS */
-.image-break {
-  height: 70vh;
-  background-size: cover;
-  background-position: center;
-}
-
-/* HOSPITALITY – BÜRGENSTOCK-LEVEL */
-.image-break.two {
-  background-image: url("https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2600&q=80");
-}
-
-/* WATCHES & JEWELLERY – HIGH HOROLOGY */
-.image-break.three {
-  background-image: url("https://images.unsplash.com/photo-1518544887687-6f3d3a1c4b49?auto=format&fit=crop&w=2600&q=80");
-}
-
 /* FOOTER */
 footer {
   padding: 80px;
