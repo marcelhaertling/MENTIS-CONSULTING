@@ -22,7 +22,7 @@ window.addEventListener("click", e => {
   });
 });
 
-// Smooth Page Transitions for footer links
+// Smooth Page Transitions
 document.querySelectorAll('footer a').forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
