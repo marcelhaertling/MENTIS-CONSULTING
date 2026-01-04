@@ -1,32 +1,104 @@
+/* --------------------------
+   GLOBAL RESET
+--------------------------- */
 * { margin:0; padding:0; box-sizing:border-box; }
 
-body { font-family:'Inter',sans-serif; background:#000; color:#fff; line-height:1.6; scroll-behavior:smooth; }
+body {
+  font-family:'Inter', sans-serif;
+  background:#000;
+  color:#fff;
+  line-height:1.6;
+  scroll-behavior:smooth;
+}
 
+/* --------------------------
+   HERO SECTION
+--------------------------- */
 .hero {
   height:100vh;
-  background-image:url("https://pixabay.com/get/g60b0b76e01a39e90906e5308e5b4cc6315c3c9d1ac3bfb12a09024098af1505a9a70d50a71c3f80af39d8481e751284b_1280.jpg");
   background-size:cover;
   background-position:center;
   position:relative;
   scroll-snap-align:start;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
 }
 
-.overlay { position:absolute; inset:0; background:rgba(0,0,0,0.55); }
+.overlay { 
+  position:absolute; 
+  inset:0; 
+  background:rgba(0,0,0,0.55); 
+}
 
-.hero-inner { position:relative; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; }
+.hero-inner { 
+  position:relative; 
+  z-index:2; 
+  display:flex; 
+  flex-direction:column; 
+  justify-content:center; 
+  align-items:center; 
+  text-align:center; 
+}
 
-.hero h1 { font-size:4rem; letter-spacing:0.3em; font-weight:400; }
-.hero p { margin-top:20px; font-size:1.2rem; opacity:0.85; }
+.hero h1 { 
+  font-size:4rem; 
+  letter-spacing:0.3em; 
+  font-weight:400; 
+}
 
-.manifesto { max-width:900px; margin:120px auto 60px; text-align:center; padding:0 20px; }
-.manifesto h2 { font-size:2.4rem; margin-bottom:30px; }
-.manifesto p { font-size:1.05rem; opacity:0.85; }
+.hero p { 
+  margin-top:20px; 
+  font-size:1.2rem; 
+  opacity:0.85; 
+}
 
-.image-break { height:60vh; background-size:cover; background-position:center; scroll-snap-align:start; }
-.image-break.one { background-image:url("https://www.edmunds.com/assets/m/cs/cms/f0c5387a-329d-4864-85e4-b9247707a79c/2026%2BMercedes-Maybach%2BSL%2B680%2Broadster%2B3_1280.jpg"); }
-.image-break.two { background-image:url("https://cdn.pixabay.com/photo/2018/07/24/13/28/architecture-3555785_1280.jpg"); }
-.image-break.three { background-image:url("https://cdn.vecteezy.com/system/resources/previews/000/487/290/original/luxury-mechanical-watch-close-up-photo.jpg"); }
+/* --------------------------
+   MANIFESTO SECTION
+--------------------------- */
+.manifesto { 
+  max-width:900px; 
+  margin:80px auto 60px; 
+  text-align:center; 
+  padding:0 20px; 
+}
 
+.manifesto h2 { 
+  font-size:2.4rem; 
+  margin-bottom:30px; 
+}
+
+.manifesto p { 
+  font-size:1.05rem; 
+  opacity:0.85; 
+}
+
+/* --------------------------
+   IMAGE BREAKS
+--------------------------- */
+.image-break { 
+  height:60vh; 
+  background-size:cover; 
+  background-position:center; 
+  scroll-snap-align:start; 
+}
+
+.image-break.one { 
+  background-image:url("https://www.edmunds.com/assets/m/cs/cms/f0c5387a-329d-4864-85e4-b9247707a79c/2026%2BMercedes-Maybach%2BSL%2B680%2Broadster%2B3_1280.jpg"); 
+}
+
+.image-break.two { 
+  background-image:url("https://cdn.pixabay.com/photo/2018/07/24/13/28/architecture-3555785_1280.jpg"); 
+}
+
+.image-break.three { 
+  background-image:url("https://cdn.vecteezy.com/system/resources/previews/000/487/290/original/luxury-mechanical-watch-close-up-photo.jpg"); 
+}
+
+/* --------------------------
+   FOCUS CARDS
+--------------------------- */
 .focus {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -46,17 +118,86 @@ body { font-family:'Inter',sans-serif; background:#000; color:#fff; line-height:
 }
 
 .card:hover {
-  transform: translateY(-10px) scale(1.02);
+  transform: translateY(-10px) scale(1.03);
   border-color: rgba(255,255,255,0.4);
 }
 
-.card h3 { letter-spacing:0.25em; font-weight:500; margin-bottom:20px; }
-.card p { font-size:0.95rem; opacity:0.85; }
+.card h3 { 
+  letter-spacing:0.25em; 
+  font-weight:500; 
+  margin-bottom:20px; 
+}
 
-.fade { opacity:0; transform:translateY(40px); transition:all 1.2s ease; }
-.fade.visible { opacity:1; transform:translateY(0); }
+.card p { 
+  font-size:0.95rem; 
+  opacity:0.85; 
+}
 
-footer { text-align:center; padding:80px 20px; font-size:0.85rem; opacity:0.6; }
-footer a { color:#fff; margin:0 15px; text-decoration:none; }
+/* --------------------------
+   FADE-IN ANIMATION
+--------------------------- */
+.fade { 
+  opacity:0; 
+  transform:translateY(40px); 
+  transition:all 1.2s ease; 
+}
 
-html { scroll-snap-type:y mandatory; overflow-y:scroll; }
+.fade.visible { 
+  opacity:1; 
+  transform:translateY(0); 
+}
+
+/* --------------------------
+   CINEMATIC INTRO
+--------------------------- */
+.cinematic {
+  opacity: 0;
+  transform: scale(0.95) translateY(40px);
+  animation: cinematicFade 1s forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes cinematicFade {
+  to { opacity:1; transform: scale(1) translateY(0); }
+}
+
+/* --------------------------
+   FOOTER
+--------------------------- */
+footer { 
+  text-align:center; 
+  padding:80px 20px; 
+  font-size:0.85rem; 
+  opacity:0.6; 
+}
+
+footer a { 
+  color:#fff; 
+  margin:0 15px; 
+  text-decoration:none; 
+}
+
+/* --------------------------
+   SCROLL SNAP
+--------------------------- */
+html { 
+  scroll-snap-type:y mandatory; 
+  overflow-y:scroll; 
+}
+
+/* --------------------------
+   RESPONSIVE
+--------------------------- */
+@media(max-width:1024px){
+  .hero h1 { font-size:3rem; }
+  .hero p { font-size:1.1rem; }
+  .manifesto h2 { font-size:2rem; }
+}
+
+@media(max-width:768px){
+  .hero h1 { font-size:2.4rem; }
+  .hero p { font-size:1rem; }
+  .manifesto h2 { font-size:1.6rem; }
+  .focus { margin:40px 20px 100px; gap:20px; }
+  .card { padding:40px 20px; }
+}
