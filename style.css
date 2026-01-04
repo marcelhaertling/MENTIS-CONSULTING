@@ -1,188 +1,62 @@
-/* GLOBAL */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+* { margin:0; padding:0; box-sizing:border-box; }
 
-body {
-  font-family: 'Inter', sans-serif;
-  background: #000;
-  color: #fff;
-  overflow-x: hidden;
-}
+body { font-family:'Inter',sans-serif; background:#000; color:#fff; line-height:1.6; scroll-behavior:smooth; }
 
-/* HERO */
 .hero {
-  position: relative;
-  height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background: url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=2400&q=80") center/cover no-repeat;
+  height:100vh;
+  background-image:url("https://pixabay.com/get/g60b0b76e01a39e90906e5308e5b4cc6315c3c9d1ac3bfb12a09024098af1505a9a70d50a71c3f80af39d8481e751284b_1280.jpg");
+  background-size:cover;
+  background-position:center;
+  position:relative;
+  scroll-snap-align:start;
 }
 
-.hero .overlay {
-  position: absolute;
-  top:0; left:0;
-  width:100%; height:100%;
-  background: rgba(0,0,0,0.45);
-}
+.overlay { position:absolute; inset:0; background:rgba(0,0,0,0.55); }
 
-.hero-inner {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  z-index:2;
-}
+.hero-inner { position:relative; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; }
 
-.hero h1 {
-  font-size: 4rem;
-  letter-spacing: 0.3em;
-  margin-bottom: 20px;
-}
+.hero h1 { font-size:4rem; letter-spacing:0.3em; font-weight:400; }
+.hero p { margin-top:20px; font-size:1.2rem; opacity:0.85; }
 
-.hero p {
-  font-size: 1.5rem;
-  opacity: 0.85;
-}
+.manifesto { max-width:900px; margin:120px auto 60px; text-align:center; padding:0 20px; }
+.manifesto h2 { font-size:2.4rem; margin-bottom:30px; }
+.manifesto p { font-size:1.05rem; opacity:0.85; }
 
-/* MANIFESTO */
-.manifesto {
-  padding: 100px 10%;
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-}
+.image-break { height:60vh; background-size:cover; background-position:center; scroll-snap-align:start; }
+.image-break.one { background-image:url("https://www.edmunds.com/assets/m/cs/cms/f0c5387a-329d-4864-85e4-b9247707a79c/2026%2BMercedes-Maybach%2BSL%2B680%2Broadster%2B3_1280.jpg"); }
+.image-break.two { background-image:url("https://cdn.pixabay.com/photo/2018/07/24/13/28/architecture-3555785_1280.jpg"); }
+.image-break.three { background-image:url("https://cdn.vecteezy.com/system/resources/previews/000/487/290/original/luxury-mechanical-watch-close-up-photo.jpg"); }
 
-.manifesto h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  letter-spacing: 0.1em;
-}
-
-.manifesto p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  opacity: 0.85;
-}
-
-/* IMAGE BREAKS */
-.image-break {
-  width: 100%;
-  height: 70vh;
-  background-size: cover;
-  background-position: center;
-  margin: 80px 0;
-}
-
-.image-break.one {
-  background-image: url("https://images.unsplash.com/photo-1605902711622-cfb43c4433c6?auto=format&fit=crop&w=2600&q=80");
-}
-
-.image-break.two {
-  background-image: url("https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?auto=format&fit=crop&w=2600&q=80");
-}
-
-.image-break.three {
-  background-image: url("https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=2600&q=80");
-}
-
-/* FOCUS CARDS */
 .focus {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  justify-items: center;
-  gap: 40px;
-  padding: 80px 10%;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:40px;
+  max-width:1200px;
+  margin:60px auto 140px;
+  padding:0 30px;
 }
 
-.focus .card {
-  background: rgba(255,255,255,0.05);
-  border-radius: 20px;
-  padding: 40px;
-  cursor: pointer;
-  text-align: center;
-  width: 100%;
-  max-width: 320px;
-  transition: transform 0.6s ease, background 0.6s ease;
+.card {
+  border:1px solid rgba(255,255,255,0.15);
+  padding:50px 40px;
+  text-align:center;
+  cursor:pointer;
+  transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+  backdrop-filter:blur(6px);
 }
 
-.focus .card:hover {
-  transform: translateY(-10px);
-  background: rgba(255,255,255,0.1);
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: rgba(255,255,255,0.4);
 }
 
-.focus h3 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-  letter-spacing: 0.1em;
-}
+.card h3 { letter-spacing:0.25em; font-weight:500; margin-bottom:20px; }
+.card p { font-size:0.95rem; opacity:0.85; }
 
-.focus p {
-  font-size: 1rem;
-  line-height: 1.6;
-  opacity: 0.85;
-}
+.fade { opacity:0; transform:translateY(40px); transition:all 1.2s ease; }
+.fade.visible { opacity:1; transform:translateY(0); }
 
-/* MODALS */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 100;
-  top:0; left:0;
-  width:100%;
-  height:100%;
-  background: rgba(0,0,0,0.85);
-  justify-content: center;
-  align-items: center;
-}
+footer { text-align:center; padding:80px 20px; font-size:0.85rem; opacity:0.6; }
+footer a { color:#fff; margin:0 15px; text-decoration:none; }
 
-.modal-content {
-  background: #111;
-  padding: 48px;
-  border-radius: 24px;
-  max-width: 800px;
-  color: #fff;
-  position: relative;
-}
-
-.close {
-  position: absolute;
-  top:16px;
-  right:16px;
-  font-size: 2rem;
-  cursor: pointer;
-  opacity:0.7;
-}
-
-.close:hover { opacity:1; }
-
-/* FOOTER */
-footer {
-  padding: 80px 10%;
-  text-align: center;
-  opacity: 0.6;
-}
-
-footer a {
-  color: #fff;
-  margin: 0 16px;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-footer a:hover { color: #0af; }
-
-/* MOBILE */
-@media(max-width:1024px){
-  .focus { grid-template-columns: 1fr; }
-}
-
-/* ANIMATIONS */
-@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
-@keyframes fadeInUp { from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);} }
+html { scroll-snap-type:y mandatory; overflow-y:scroll; }
