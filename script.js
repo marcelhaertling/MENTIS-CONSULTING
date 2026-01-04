@@ -1,9 +1,18 @@
-// Fade-in on scroll
-const fades = document.querySelectorAll('.fade');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
-},{ threshold:0.2 });
-fades.forEach(fade => observer.observe(fade));
+// Scroll fade-in
+document.addEventListener('DOMContentLoaded', () => {
+  const faders = document.querySelectorAll('.fade');
+  const appearOptions = { threshold: 0.1 };
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, appearOptions);
 
-// Card click to subpage
-function goToPage(url){ window.location.href = url; }
+  faders.forEach(fader => { appearOnScroll.observe(fader); });
+});
+
+// Card click navigation
+function goToPage(url) { window.location.href = url; }
