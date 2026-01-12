@@ -35,11 +35,14 @@ body{
 .hero-auto{background-image:url("images/automotive.jpg")}
 .hero-hosp{background-image:url("images/hospitality.jpg")}
 .hero-watch{background-image:url("images/watches.jpg")}
+
+/* Contact hero: premium abstract (no extra image required) */
 .hero-contact{
   background-image:
-    radial-gradient(900px 500px at 50% 35%, rgba(255,255,255,.10), rgba(0,0,0,0) 60%),
-    radial-gradient(700px 400px at 35% 60%, rgba(255,255,255,.06), rgba(0,0,0,0) 60%),
-    linear-gradient(180deg, rgba(255,255,255,.04), rgba(0,0,0,0));
+    radial-gradient(1000px 520px at 50% 32%, rgba(255,255,255,.10), rgba(0,0,0,0) 62%),
+    radial-gradient(800px 520px at 20% 62%, rgba(255,255,255,.05), rgba(0,0,0,0) 62%),
+    radial-gradient(900px 520px at 80% 72%, rgba(255,255,255,.04), rgba(0,0,0,0) 62%),
+    linear-gradient(180deg, rgba(255,255,255,.05), rgba(0,0,0,0));
 }
 
 .overlay{
@@ -109,7 +112,7 @@ body{
   grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
   gap:14px;
   max-width:1100px;
-  margin:36px auto 30px;
+  margin:36px auto 30px; /* breathing room above cards */
   padding:0 14px;
 }
 
@@ -133,20 +136,43 @@ body{
   box-shadow:var(--shadow);
   transform:translateZ(0);
   transition:
-    transform .65s var(--ease-slow),
-    box-shadow .65s var(--ease-slow),
-    border-color .65s ease;
+    transform .72s var(--ease-slow),
+    box-shadow .72s var(--ease-slow),
+    border-color .72s ease;
 }
 
 .card-auto{background-image:url("images/automotive.jpg")}
 .card-hosp{background-image:url("images/hospitality.jpg")}
 .card-watch{background-image:url("images/watches.jpg")}
 
+/* Contact tile: premium glass + subtle sheen (no image required) */
+.card-contact{
+  background-image:
+    radial-gradient(900px 420px at 50% 30%, rgba(255,255,255,.10), rgba(0,0,0,0) 62%),
+    radial-gradient(700px 420px at 18% 68%, rgba(255,255,255,.06), rgba(0,0,0,0) 60%),
+    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+}
+
 .card-overlay{
   position:absolute;
   inset:0;
   background:radial-gradient(1200px 600px at 50% 30%, rgba(0,0,0,.10), rgba(0,0,0,.62));
-  transition:background .65s ease;
+  transition:background .72s ease;
+}
+
+/* lighter overlay for contact */
+.card-overlay-contact{
+  background:radial-gradient(1200px 600px at 50% 20%, rgba(0,0,0,.06), rgba(0,0,0,.55));
+}
+
+.card::after{
+  content:"";
+  position:absolute;
+  inset:-30%;
+  background:linear-gradient(110deg, rgba(255,255,255,0) 35%, rgba(255,255,255,.10) 50%, rgba(255,255,255,0) 65%);
+  transform:translateX(-18%) rotate(6deg);
+  opacity:.0;
+  transition:opacity .72s ease, transform .72s var(--ease-slow);
 }
 
 .card h3{
@@ -168,7 +194,7 @@ body{
   letter-spacing:.06em;
   opacity:.78;
   text-shadow:0 14px 40px rgba(0,0,0,.65);
-  transition:transform .65s var(--ease-slow), opacity .65s ease;
+  transition:transform .72s var(--ease-slow), opacity .72s ease;
 }
 
 .card:hover{
@@ -182,6 +208,10 @@ body{
 .card:hover .card-hint{
   transform:translateY(-2px);
   opacity:.95;
+}
+.card:hover::after{
+  opacity:.55;
+  transform:translateX(10%) rotate(6deg);
 }
 
 /* Buttons */
@@ -212,80 +242,33 @@ body{
 .button:hover{ transform:translateY(-2px); }
 .button:active{ transform:translateY(0); opacity:.92; }
 
-/* Contact CTA */
-.contact-cta{
-  max-width:1100px;
-  margin:0 auto 20px;
-  padding:0 14px;
-}
-.contact-cta-inner{
-  border-radius:var(--radius);
-  border:1px solid var(--line);
-  box-shadow:var(--shadow);
-  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-  padding:22px;
-  display:flex;
-  gap:18px;
-  align-items:center;
-  justify-content:space-between;
-  flex-wrap:wrap;
-}
-.contact-cta-copy h2{
-  font-size:1.25rem;
-  letter-spacing:.03em;
-  font-weight:600;
-  margin-bottom:6px;
-}
-.contact-cta-copy p{ color:var(--muted); max-width:680px; }
-.contact-cta-actions{ display:flex; gap:10px; flex-wrap:wrap; }
-
-/* Contact strip */
-.contact-strip{
-  max-width:1100px;
-  margin:8px auto 10px;
-  padding:0 14px;
-}
-.contact-strip-inner{
-  border-radius:var(--radius);
-  border:1px solid var(--line);
-  background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-  box-shadow:var(--shadow);
-  padding:18px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:14px;
-  flex-wrap:wrap;
-}
-.contact-kicker{ font-size:.78rem; letter-spacing:.2em; text-transform:uppercase; opacity:.72; }
-.contact-strip-title{ font-size:1.05rem; font-weight:600; margin-top:4px; }
-.contact-strip-sub{ color:var(--muted); font-size:.95rem; margin-top:2px; }
-.contact-strip-right{ display:flex; gap:10px; flex-wrap:wrap; }
-
 /* Contact page */
 .contact-page{
   max-width:1100px;
   margin:18px auto 10px;
   padding:0 14px;
 }
-.contact-grid{
-  display:grid;
-  grid-template-columns: 1.2fr .8fr;
-  gap:14px;
-}
-.contact-panel{
+.contact-single{
   border-radius:var(--radius);
   border:1px solid var(--line);
   box-shadow:var(--shadow);
   background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
   padding:22px;
 }
-.contact-panel h2{ font-size:1.35rem; margin-bottom:6px; }
-.contact-panel p{ color:var(--muted); margin-bottom:14px; }
+.contact-single h2{
+  font-size:1.35rem;
+  margin-bottom:12px;
+  letter-spacing:.02em;
+}
 
 .form{
   display:flex;
   flex-direction:column;
+  gap:12px;
+}
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
   gap:12px;
 }
 .form label{
@@ -304,29 +287,52 @@ body{
   outline:none;
   transition:border-color .35s ease, background .35s ease;
 }
-.form textarea{ resize:vertical; min-height:130px; }
+.form textarea{ resize:vertical; min-height:150px; }
 .form input:focus,.form textarea:focus{
   border-color:rgba(255,255,255,.34);
   background:rgba(0,0,0,.28);
 }
 .form-note{
-  margin-top:8px;
+  margin-top:6px;
   color:var(--muted);
   font-size:.9rem;
 }
-.form-note a{ color:#fff; text-decoration:none; border-bottom:1px solid rgba(255,255,255,.25); }
-
-.contact-aside{ display:flex; flex-direction:column; gap:14px; }
-.aside-card{
-  border-radius:var(--radius);
-  border:1px solid var(--line);
-  box-shadow:var(--shadow);
-  background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-  padding:18px;
+.form-note a{
+  color:#fff;
+  text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.25);
 }
-.aside-kicker{ font-size:.78rem; letter-spacing:.2em; text-transform:uppercase; opacity:.72; }
-.aside-title{ font-size:1.02rem; font-weight:600; margin-top:6px; }
-.aside-text{ color:var(--muted); font-size:.95rem; margin:10px 0 14px; }
+
+/* Contact meta (under form) */
+.contact-meta{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:18px;
+}
+.meta-block{
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.03);
+  padding:14px;
+}
+.meta-label{
+  font-size:.78rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  opacity:.7;
+  margin-bottom:6px;
+}
+.meta-value{
+  color:rgba(255,255,255,.9);
+  font-size:.95rem;
+  line-height:1.5;
+}
+.meta-value a{
+  color:#fff;
+  text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.25);
+}
 
 /* Scroll fade */
 .fade{opacity:0;transform:translateY(22px);transition:opacity 1s ease, transform 1s ease}
@@ -377,11 +383,12 @@ footer a:hover{opacity:1}
   .hero h1{font-size:3rem}
   .manifesto h2{font-size:1.85rem}
   .card{min-height:300px}
-  .contact-grid{ grid-template-columns:1fr; }
 }
 @media(max-width:768px){
   .hero{min-height:72vh}
   .hero h1{font-size:2.35rem}
   .hero .claim{font-size:.98rem}
   .card{min-height:260px;border-radius:16px}
+  .form-row{ grid-template-columns:1fr; }
+  .contact-meta{ grid-template-columns:1fr; }
 }
