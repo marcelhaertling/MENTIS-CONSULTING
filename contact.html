@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MENTIS — Contact</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<a href="index.html" class="back-link" aria-label="Back to Home">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+  </svg>
+  Back to Home
+</a>
+
+<header class="hero hero-contact">
+  <div class="overlay"></div>
+  <div class="hero-inner cinematic">
+    <h1>CONTACT</h1>
+    <p class="claim">The Human Standard of Luxury</p>
+  </div>
+</header>
+
+<section class="contact-page fade">
+  <div class="contact-grid">
+    <div class="contact-panel">
+      <h2>Confidential inquiry</h2>
+      <p>
+        Share what you’re building — we’ll respond with clarity and discretion.
+        This form works on GitHub Pages via Formspree (recommended for high‑end static sites).
+      </p>
+
+      <!-- ✅ Replace the action URL below with your Formspree endpoint -->
+      <!-- Create one at formspree.io, then paste it here -->
+      <form class="form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <label>
+          Name
+          <input name="name" type="text" placeholder="Your name" required />
+        </label>
+
+        <label>
+          Email
+          <input name="email" type="email" placeholder="you@company.com" required />
+        </label>
+
+        <label>
+          Company (optional)
+          <input name="company" type="text" placeholder="Company / Brand" />
+        </label>
+
+        <label>
+          Message
+          <textarea name="message" rows="6" placeholder="Tell us what you’re aiming to achieve." required></textarea>
+        </label>
+
+        <input type="hidden" name="_subject" value="MENTIS — New inquiry" />
+        <button class="button primary" type="submit">Send inquiry</button>
+
+        <p class="form-note">
+          Prefer email? Write us at <a href="mailto:info@mentis.ch">info@mentis.ch</a>.
+        </p>
+      </form>
+    </div>
+
+    <aside class="contact-aside">
+      <div class="aside-card">
+        <div class="aside-kicker">Direct</div>
+        <div class="aside-title">info@mentis.ch</div>
+        <p class="aside-text">
+          We typically reply within 1–2 business days. For urgent matters, include “Urgent” in the subject.
+        </p>
+        <a class="button ghost" href="mailto:info@mentis.ch">Email now</a>
+      </div>
+
+      <div class="aside-card">
+        <div class="aside-kicker">Address</div>
+        <div class="aside-title">Marcel Härtling</div>
+        <p class="aside-text">
+          Egelbachstraße 5<br/>
+          8274 Tägerwilen<br/>
+          Switzerland
+        </p>
+        <a class="button ghost" href="impressum.html">Legal details</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<footer>
+  <a href="impressum.html">Impressum</a>
+  <a href="datenschutz.html">Privacy</a>
+  <p>© 2026 MENTIS</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
