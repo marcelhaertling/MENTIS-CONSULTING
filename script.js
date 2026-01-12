@@ -1,22 +1,12 @@
-// Sichtbarkeit Fade-In beim Scroll
-const faders = document.querySelectorAll('.fade');
-const appearOptions = {
-  threshold: 0.3,
-};
+document.addEventListener("DOMContentLoaded", () => {
+  const faders = document.querySelectorAll(".fade");
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add("visible");
+      obs.unobserve(e.target);
+    });
+  }, { threshold: 0.2 });
 
-const appearOnScroll = new IntersectionObserver(function(entries, observer){
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    entry.target.classList.add('visible');
-    observer.unobserve(entry.target);
-  });
-}, appearOptions);
-
-faders.forEach(fader => {
-  appearOnScroll.observe(fader);
+  faders.forEach(el => io.observe(el));
 });
-
-// Card Klick Navigation
-function goToPage(url) {
-  window.location.href = url;
-}

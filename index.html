@@ -1,43 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>MENTIS — Strategic Luxury Consulting</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>MENTIS — Strategic Luxury Consulting</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<header class="hero" style="background-image:url('https://source.unsplash.com/1600x900/?alps,mountain,luxury');">
+<header class="hero hero-home">
   <div class="overlay"></div>
   <div class="hero-inner cinematic">
     <h1>MENTIS</h1>
     <p class="claim">The Human Standard of Luxury</p>
   </div>
+  <div class="scroll-indicator" aria-hidden="true">Scroll</div>
 </header>
 
 <section class="manifesto fade">
   <h2>Luxury isn’t what you sell. It’s what people experience.</h2>
   <p>
-    We’ve shaped the human standard of luxury for Mercedes-AMG, Maybach, and the G-Class. 
-    Now, we bring that mastery to your brand, transforming every interaction into an unforgettable moment.<br><br>
-    MENTIS – where Brand, Product, and People become one.
+    We’ve shaped the human standard of luxury for Mercedes-AMG, Maybach, and the G-Class.
+    Now, we bring that mastery to your brand, transforming every interaction into an unforgettable moment.
+    <br><br>
+    <span class="signature">MENTIS – where Brand, Product, and People become one.</span>
   </p>
 </section>
 
-<section class="focus fade">
-  <div class="card" onclick="goToPage('automotive.html')" style="background-image:url('https://source.unsplash.com/800x600/?mercedes,maybach,car');">
+<section class="focus fade" aria-label="Industry Focus">
+  <a class="card card-auto" href="automotive.html" aria-label="Open Automotive">
+    <span class="card-overlay" aria-hidden="true"></span>
     <h3>AUTOMOTIVE</h3>
-  </div>
+    <span class="card-hint">Explore →</span>
+  </a>
 
-  <div class="card" onclick="goToPage('hospitality.html')" style="background-image:url('https://source.unsplash.com/800x600/?modern,architecture,luxury,hotel');">
+  <a class="card card-hosp" href="hospitality.html" aria-label="Open Hospitality">
+    <span class="card-overlay" aria-hidden="true"></span>
     <h3>HOSPITALITY</h3>
-  </div>
+    <span class="card-hint">Explore →</span>
+  </a>
 
-  <div class="card" onclick="goToPage('watches.html')" style="background-image:url('https://source.unsplash.com/800x600/?luxury,watch,mechanical');">
-    <h3>WATCHES & JEWELLERY</h3>
-  </div>
+  <a class="card card-watch" href="watches.html" aria-label="Open Watches & Jewellery">
+    <span class="card-overlay" aria-hidden="true"></span>
+    <h3>WATCHES &amp; JEWELLERY</h3>
+    <span class="card-hint">Explore →</span>
+  </a>
 </section>
 
 <footer>

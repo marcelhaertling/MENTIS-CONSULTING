@@ -1,33 +1,223 @@
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Inter',sans-serif; background:#000; color:#fff; line-height:1.6; scroll-behavior:smooth; overflow-x:hidden; }
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Inter',sans-serif;
+  background:#000;
+  color:#fff;
+  line-height:1.6;
+  scroll-behavior:smooth;
+  overflow-x:hidden;
+}
 
-.hero { min-height:80vh; background-size:cover; background-position:center; position:relative; display:flex; justify-content:center; align-items:center; text-align:center; }
-.overlay { position:absolute; inset:0; background:rgba(0,0,0,0.55);}
-.hero-inner { position:relative; z-index:2; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; }
-.hero h1 { font-size:4rem; letter-spacing:0.3em; font-weight:400; text-shadow:0 0 10px rgba(0,0,0,0.6);}
-.hero .claim { font-size:1.2rem; margin-top:15px; opacity:0.85; font-weight:400; letter-spacing:0.15em; text-shadow:0 0 6px rgba(0,0,0,0.6);}
-.hero p { margin-top:20px; font-size:1.2rem; opacity:0.85;}
+/* HERO */
+.hero{
+  min-height:80vh;
+  background-size:cover;
+  background-position:center;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+.hero-home{background-image:url("images/hero.jpg")}
+.hero-auto{background-image:url("images/automotive.jpg")}
+.hero-hosp{background-image:url("images/hospitality.jpg")}
+.hero-watch{background-image:url("images/watches.jpg")}
 
-.manifesto { max-width:900px; margin:20px auto 20px; text-align:center; padding:0 15px; }
-.manifesto h2 { font-size:2.4rem; margin-bottom:10px; }
-.manifesto p { font-size:1.05rem; opacity:0.85; }
+.overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,.72) 0%, rgba(0,0,0,.36) 55%, rgba(0,0,0,.82) 100%);
+}
 
-.focus { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:15px; max-width:1100px; margin:10px auto 30px; padding:0 10px; }
-.card { min-height:280px; background-size:cover; background-position:center; border-radius:12px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:20px; cursor:pointer; transition:all 0.35s cubic-bezier(0.4,0,0.2,1); color:#fff; backdrop-filter:blur(6px);}
-.card:hover { transform:translateY(-10px) scale(1.03); border-color:rgba(255,255,255,0.4);}
-.card h3 { letter-spacing:0.25em; font-weight:500; text-shadow:0 0 6px rgba(0,0,0,0.6); }
+.hero-inner{
+  position:relative;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:14px;
+  padding:26px 18px;
+}
 
-.fade { opacity:0; transform:translateY(40px); transition:all 1.2s ease;}
-.fade.visible { opacity:1; transform:translateY(0);}
+.hero h1{
+  font-size:3.6rem;
+  letter-spacing:.34em;
+  font-weight:400;
+  text-shadow:0 14px 42px rgba(0,0,0,.55);
+}
+.hero .claim{
+  font-size:1.08rem;
+  letter-spacing:.16em;
+  opacity:.92;
+  text-shadow:0 10px 28px rgba(0,0,0,.55);
+}
 
-.cinematic { opacity:0; transform:scale(0.95) translateY(40px); animation:cinematicFade 1s forwards; animation-delay:0.3s;}
-@keyframes cinematicFade { to { opacity:1; transform:scale(1) translateY(0); } }
+.scroll-indicator{
+  position:absolute;
+  bottom:18px;
+  z-index:2;
+  opacity:.75;
+  letter-spacing:.2em;
+  font-size:.8rem;
+  text-transform:uppercase;
+  animation:pulse 1.8s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{transform:translateY(0);opacity:.65}
+  50%{transform:translateY(-6px);opacity:.95}
+}
 
-.back-link { display:flex; align-items:center; gap:10px; margin:20px; font-weight:500; color:#fff; text-decoration:none; }
-.back-link svg { width:20px; height:20px; fill:#fff; }
+/* MANIFESTO (tight spacing) */
+.manifesto{
+  max-width:900px;
+  margin:16px auto 10px;
+  text-align:center;
+  padding:0 16px;
+}
+.manifesto h2{
+  font-size:2.15rem;
+  margin-bottom:10px;
+}
+.manifesto p{
+  font-size:1.02rem;
+  opacity:.88;
+}
+.signature{opacity:.95}
 
-footer { text-align:center; padding:50px 20px; font-size:0.85rem; opacity:0.6; }
-footer a { color:#fff; margin:0 15px; text-decoration:none; }
+/* CARDS */
+.focus{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+  gap:14px;
+  max-width:1100px;
+  margin:10px auto 26px;
+  padding:0 14px;
+}
 
-@media(max-width:1024px){ .hero h1{font-size:3rem;} .hero p{font-size:1.1rem;} .hero .claim{font-size:1rem;} .manifesto h2{font-size:2rem;} }
-@media(max-width:768px){ .hero h1{font-size:2.4rem;} .hero p{font-size:1rem;} .hero .claim{font-size:0.95rem;} .manifesto h2{font-size:1.6rem;} .focus{margin:20px 15px 30px; gap:15px;} .card{padding:15px; min-height:240px;} }
+.card{
+  position:relative;
+  min-height:320px;
+  border-radius:18px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  text-decoration:none;
+  color:#fff;
+  cursor:pointer;
+
+  background-size:cover;
+  background-position:center;
+
+  border:1px solid rgba(255,255,255,.16);
+  box-shadow:0 18px 50px rgba(0,0,0,.55);
+  transform:translateZ(0);
+  transition:transform .45s cubic-bezier(.2,.8,.2,1),
+             box-shadow .45s cubic-bezier(.2,.8,.2,1),
+             border-color .45s ease;
+}
+
+.card-auto{background-image:url("images/automotive.jpg")}
+.card-hosp{background-image:url("images/hospitality.jpg")}
+.card-watch{background-image:url("images/watches.jpg")}
+
+.card-overlay{
+  position:absolute;
+  inset:0;
+  background:radial-gradient(1200px 600px at 50% 30%, rgba(0,0,0,.10), rgba(0,0,0,.62));
+  transition:background .45s ease;
+}
+
+.card h3{
+  position:relative;
+  z-index:2;
+  font-weight:600;
+  letter-spacing:.22em;
+  font-size:1.25rem;
+  text-shadow:0 14px 40px rgba(0,0,0,.65);
+  padding:0 18px;
+}
+
+.card-hint{
+  position:absolute;
+  bottom:18px;
+  left:18px;
+  z-index:2;
+  font-size:.9rem;
+  letter-spacing:.06em;
+  opacity:.78;
+  text-shadow:0 14px 40px rgba(0,0,0,.65);
+  transition:transform .45s cubic-bezier(.2,.8,.2,1), opacity .45s ease;
+}
+
+.card:hover{
+  transform:translateY(-10px) scale(1.02);
+  border-color:rgba(255,255,255,.30);
+  box-shadow:0 28px 70px rgba(0,0,0,.65);
+}
+.card:hover .card-overlay{
+  background:radial-gradient(1200px 600px at 50% 30%, rgba(0,0,0,.05), rgba(0,0,0,.55));
+}
+.card:hover .card-hint{
+  transform:translateY(-2px);
+  opacity:.95;
+}
+
+/* Scroll fade */
+.fade{opacity:0;transform:translateY(22px);transition:opacity 1s ease, transform 1s ease}
+.fade.visible{opacity:1;transform:translateY(0)}
+
+/* Cinematic intro */
+.cinematic{
+  opacity:0;
+  transform:scale(.98) translateY(18px);
+  animation:cinematicFade .9s ease forwards;
+  animation-delay:.15s;
+}
+@keyframes cinematicFade{
+  to{opacity:1;transform:scale(1) translateY(0)}
+}
+
+/* Back link */
+.back-link{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin:18px 18px 0;
+  color:#fff;
+  text-decoration:none;
+  opacity:.86;
+  transition:opacity .25s ease, transform .25s ease;
+}
+.back-link:hover{opacity:1;transform:translateX(-2px)}
+.back-link svg{width:20px;height:20px;fill:#fff}
+
+/* Footer */
+footer{
+  text-align:center;
+  padding:44px 16px 56px;
+  opacity:.72;
+  font-size:.85rem;
+}
+footer a{
+  color:#fff;
+  text-decoration:none;
+  margin:0 14px;
+  opacity:.9;
+}
+footer a:hover{opacity:1}
+
+/* Responsive */
+@media(max-width:1024px){
+  .hero h1{font-size:3rem}
+  .manifesto h2{font-size:1.85rem}
+  .card{min-height:300px}
+}
+@media(max-width:768px){
+  .hero{min-height:72vh}
+  .hero h1{font-size:2.35rem}
+  .hero .claim{font-size:.98rem}
+  .card{min-height:260px;border-radius:16px}
+}
